@@ -8,11 +8,11 @@ liquibase-percona extention from [adangel](https://github.com/adangel/liquibase-
 There is an example "changelog-master.xml" file.
 3. Edit/add your changes in files "src/main/migrations/changesets/". There are two example files
 2. Download the image divanov/liquibase-percona with "docker pull divanov/liquibase-percona"
-3. Run from command line
+3. Step back one directory ```../``` and run from command line
 ```
 docker run -it -v `pwd`/liquibase-percona:/liquibase divanov/liquibase-percona mvn resources:resources liquibase:update -Ptest
 ```
-
+The idea is to mount all files as a volume in the container  
 ## What the command do:
 1. It starts a container from divanov/liquibase-percona image
 2. Adds all files from the repository as a volume
@@ -22,4 +22,13 @@ docker run -it -v `pwd`/liquibase-percona:/liquibase divanov/liquibase-percona m
 >liquibase-maven-plugin -v 3.6.3  
 >com.github.adangel.liquibase.ext -v 1.6.0  
 
-### Maven builds with the resources from "src/main/migrations" all the changes to the desired database.
+##### Maven builds with the resources from "src/main/migrations" all the changes to the desired database.
+Also it is very useful to use this with Gitlab.
+Then you can add something like this code in your .gitlab-ci
+```
+    - mvn resources:resources liquibase:tag -Dliquibase.tag="${CI_JOB_ID}" liquibase:update
+```
+Where the changes will be tagged with the build and later you can rollback by this tag  
+```
+    - mvn resources:resources liquibase:rollback -Dliquibase.rollbackTag="${CI_JOB_ID}"
+```
