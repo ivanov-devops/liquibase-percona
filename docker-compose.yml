@@ -1,8 +1,0 @@
-version: '3'
-services:
-  liquibase-percona:
-    image: divanov/liquibase-percona
-    container_name: liquibase-percona
-    privileged: true
-    volumes:
-      - .:/liquibase
