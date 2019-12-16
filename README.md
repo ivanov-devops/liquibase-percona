@@ -4,11 +4,14 @@ It is using image from dockerhub -> [divanov/liquibase-percona](https://hub.dock
 liquibase-percona extention from [adangel](https://github.com/adangel/liquibase-percona "github") is added in pom.xml
 ## USAGE:
 1. Edit file "src/main/filters/test.properties" with your database settings
-2. Edit file "src/main/migrations/changelog-master.xml". It should contains all changesets files for the migration. 
+2. Edit file "src/main/migrations/changelog-master.xml". It should contains all changesets files for the migration.
 There is an example "changelog-master.xml" file.
 3. Edit/add your changes in files "src/main/migrations/changesets/". There are two example files
 2. Download the image divanov/liquibase-percona with "docker pull divanov/liquibase-percona"
-3. Run from command line "docker run -it -v `pwd`/liquibase-percona:/liquibase divanov/liquibase-percona mvn resources:resources liquibase:update -Ptest"
+3. Run from command line
+```
+docker run -it -v `pwd`/liquibase-percona:/liquibase divanov/liquibase-percona mvn resources:resources liquibase:update -Ptest
+```
 
 ## What the command do:
 1. It starts a container from divanov/liquibase-percona image
