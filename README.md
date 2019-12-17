@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.com/ivanov-devops/liquibase-percona.svg?branch=master)](https://travis-ci.com/ivanov-devops/liquibase-percona)
+<br />
+
 # liquibase-percona
 You can use this repository for mysql database migration for your project.
 It is using image from dockerhub -> [divanov/liquibase-percona](https://hub.docker.com/r/divanov/liquibase-percona "dockerhub")   with maven and percona-toolkit  
