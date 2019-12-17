@@ -11,10 +11,17 @@ liquibase-percona extention from [adangel](https://github.com/adangel/liquibase-
 There is an example "changelog-master.xml" file.
 3. Edit/add your changes in files "src/main/migrations/changesets/". There are two example files
 2. Download the image divanov/liquibase-percona with "docker pull divanov/liquibase-percona"
-3. Step back one directory ```../``` and run from command line
+3. Mount current directory and run
+
+for mac
 ```
-docker run -it -v `pwd`/liquibase-percona:/liquibase divanov/liquibase-percona mvn resources:resources liquibase:update -Ptest
+docker run -it -v `pwd`:/liquibase divanov/liquibase-percona mvn resources:resources liquibase:update -Ptest
 ```
+for linux
+```
+docker run -it -v (pwd):/liquibase divanov/liquibase-percona mvn resources:resources liquibase:update -Ptest
+```
+
 The idea is to mount all files as a volume in the container  
 ## What the command do:
 1. It starts a container from divanov/liquibase-percona image
