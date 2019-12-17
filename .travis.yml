@@ -1,5 +1,4 @@
 
 script: 
-    - cd ../ 
-    - docker run -it -v `pwd`/liquibase-percona:/liquibase divanov/liquibase-percona mvn clean install
+    - cd ../ && docker run -it -v `pwd`/liquibase-percona:/liquibase divanov/liquibase-percona mvn clean install
 
