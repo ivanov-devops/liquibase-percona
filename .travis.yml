@@ -4,5 +4,5 @@ services:
 before_install:
 - docker pull divanov/liquibase-percona   
 script: 
-    - docker run -it -v $(pwd)/liquibase-percona:/liquibase divanov/liquibase-percona mvn clean install
+    - docker run -it -v $(pwd):/liquibase divanov/liquibase-percona mvn clean install
 
