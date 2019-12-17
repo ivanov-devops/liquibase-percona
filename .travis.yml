@@ -1,2 +1,6 @@
-script: cd ../ && docker run -it -v `pwd`/liquibase-percona:/liquibase divanov/liquibase-percona mvn clean install
+language: generic
+sudo: required
+
+script: 
+    - cd ../ && docker run -it -v `pwd`/liquibase-percona:/liquibase divanov/liquibase-percona mvn clean install
 
