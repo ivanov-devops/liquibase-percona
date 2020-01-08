@@ -15,3 +15,4 @@ echo "driver=com.mysql.cj.jdbc.Driver" >> $CONFIG
 echo "outputChangeLogFile=/liquibase/liquibase-outputChangeLog.xml" >> $CONFIG
 echo "diffChangeLogFile=/liquibase/resources/liquibase-diff.xml" >> $CONFIG
 
+exec "$@"
